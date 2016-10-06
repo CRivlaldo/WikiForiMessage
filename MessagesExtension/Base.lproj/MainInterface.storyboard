@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Messages View Controller-->
+        <scene sceneID="7MM-of-jgj">
+            <objects>
+                <viewController id="ObA-dk-sSI" customClass="MessagesViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qkL-Od-lgU"/>
+                        <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QlM-gv-pnM">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Copy text to the clipboard first" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="R3j-cD-exg">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ObA-dk-sSI" id="9gk-PE-Rhq"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="eBy-HY-Fvb">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="zcz-9F-A1N"/>
+                                </constraints>
+                                <state key="normal" title="Paste"/>
+                                <connections>
+                                    <action selector="pasteAndSearch" destination="ObA-dk-sSI" eventType="touchUpInside" id="lSb-hC-1AC"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3By-fp-LTH"/>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eBy-HY-Fvb" firstAttribute="leading" secondItem="R3j-cD-exg" secondAttribute="trailing" constant="8" symbolic="YES" id="32p-Ps-Oo5"/>
+                            <constraint firstItem="R3j-cD-exg" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leadingMargin" constant="8" id="T5p-wQ-5ro"/>
+                            <constraint firstItem="R3j-cD-exg" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="8" symbolic="YES" id="VOi-7f-fLr"/>
+                            <constraint firstItem="eBy-HY-Fvb" firstAttribute="trailing" secondItem="QlM-gv-pnM" secondAttribute="trailing" constant="8" id="dk2-aP-273"/>
+                            <constraint firstItem="3By-fp-LTH" firstAttribute="centerY" secondItem="QlM-gv-pnM" secondAttribute="centerY" id="dza-rg-jm5"/>
+                            <constraint firstItem="R3j-cD-exg" firstAttribute="leading" secondItem="QlM-gv-pnM" secondAttribute="leading" id="ftF-vI-xBa"/>
+                            <constraint firstItem="R3j-cD-exg" firstAttribute="top" secondItem="eBy-HY-Fvb" secondAttribute="top" id="hKa-lC-5qD"/>
+                            <constraint firstItem="QlM-gv-pnM" firstAttribute="top" secondItem="R3j-cD-exg" secondAttribute="bottom" constant="8" symbolic="YES" id="hst-fD-LB0"/>
+                            <constraint firstItem="n38-gi-rB5" firstAttribute="top" secondItem="QlM-gv-pnM" secondAttribute="bottom" constant="8" symbolic="YES" id="jl1-xU-6UI"/>
+                            <constraint firstItem="3By-fp-LTH" firstAttribute="centerX" secondItem="QlM-gv-pnM" secondAttribute="centerX" id="sgU-oW-Dqt"/>
+                            <constraint firstItem="eBy-HY-Fvb" firstAttribute="trailing" secondItem="zMn-AG-sqS" secondAttribute="trailingMargin" id="xdb-KX-4Bc"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="528"/>
+                    <connections>
+                        <outlet property="searchButton" destination="eBy-HY-Fvb" id="pjd-eL-yAB"/>
+                        <outlet property="searchButtonWidth" destination="zcz-9F-A1N" id="LpB-Cm-ZUc"/>
+                        <outlet property="searchField" destination="R3j-cD-exg" id="KbD-hO-Szy"/>
+                        <outlet property="searchFieldToSearchButtonDistance" destination="32p-Ps-Oo5" id="GAO-qA-1Na"/>
+                        <outlet property="spinner" destination="3By-fp-LTH" id="wB1-Eg-1Ck"/>
+                        <outlet property="textView" destination="QlM-gv-pnM" id="NGd-8s-p89"/>
+                        <outlet property="textViewToSearchFieldDistance" destination="hst-fD-LB0" id="rdg-Gy-vYy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1.6000000000000001" y="159.22038980509745"/>
+        </scene>
+    </scenes>
+</document>
